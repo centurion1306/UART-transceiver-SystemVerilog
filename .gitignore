@@ -1,0 +1,12 @@
+# Icarus Verilog compiled simulation output
+uart_sim
+*.out
+
+# Waveform dumps (large binary/text traces)
+*.vcd
+
+# Editor / OS artifacts
+.vscode/
+*.swp
+*~
+.DS_Store
