@@ -5,21 +5,7 @@ A synthesizable, parameterized UART (Universal Asynchronous Receiver-Transmitter
 ---
 
 ## Architecture Overview
-
-+-------------------+      +-------------+
-wr_data / wr_en  |                   |      |             |
----------------->|      TX FIFO      |----->|   UART TX   |-----> tx_pin
-|   (16x8 Depth)    |      | (Serializer)|
-+-------------------+      +-------------+
-|
-(Loopback / Wire)
-v
-+-------------------+      +-------------+
-rd_data / rd_en  |                   |      |             |
-<----------------|      RX FIFO      |<-----|   UART RX   |<----- rx_pin
-|   (16x8 Depth)    |      | (16x Sample)|
-+-------------------+      +-------------+
-
+![Parameterized UART Transceiver Architecture](assets/Architecture_diagram.jpg)
 ### Key Modules
 * **`fifo.sv`**: Parameterized synchronous First-Word Fall-Through (FWFT) FIFO with combinational read and status flags (`full`, `empty`, `fifo_count`).
 * **`uart_tx.sv`**: FSM-based serializer handling standard 8-N-1 framing (1 Start bit, 8 Data bits, 1 Stop bit).
